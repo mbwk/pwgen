@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 
 	"github.com/mbwk/pwgen"
 )
@@ -19,8 +20,8 @@ func main() {
 	password, err := pwgen.GeneratePassword(*length, !(*nouppercase), !(*nolowercase), *number, *special)
 
 	if err != nil {
-		fmt.Println("error:", err.Error())
+		fmt.Fprintln(os.Stderr, "error:", err.Error())
 		return
 	}
-	fmt.Println("Password:", password)
+	fmt.Println(password)
 }

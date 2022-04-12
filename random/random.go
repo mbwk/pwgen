@@ -15,12 +15,14 @@ func init() {
 	rand.Seed(int64(binary.LittleEndian.Uint64(b[:])))
 }
 
+// Shuffle pseudo-randomizes the order of elements
 func Shuffle(buffer []byte) {
 	rand.Shuffle(len(buffer), func(i, j int) {
 		buffer[i], buffer[j] = buffer[j], buffer[i]
 	})
 }
 
+// RandomSelection pseudo-randomly picks a byte from a string
 func RandomSelection(source string) byte {
 	return source[rand.Intn(len(source))]
 }

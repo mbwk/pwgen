@@ -6,6 +6,7 @@ import (
 	"github.com/mbwk/pwgen/random"
 )
 
+// SelectCase returns a character pool given the selected cases
 func SelectCase(uppercase bool, lowercase bool) (string, error) {
 	cases := NoneCase
 	if lowercase {
@@ -21,6 +22,7 @@ func SelectCase(uppercase bool, lowercase bool) (string, error) {
 	return Cases[cases], nil
 }
 
+// GeneratePassword pseudo-randomly generates a password given certain parameters
 func GeneratePassword(length int, uppercase bool, lowercase bool, number int, special int) (string, error) {
 	if length < 6 {
 		return "", fmt.Errorf("password length too short")

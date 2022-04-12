@@ -23,7 +23,11 @@ Example: generate a password that is 30 characters in length, with 6 numbers, 3 
 $ ./pwgen -length 30 -number 6 -special 3 -nouppercase
 ```
 
-The root `pwgen` package is a library that can be imported in other programs. The key function is `pwgen.GeneratePassword`.
+The root `pwgen` package is a library that can be imported in other programs. The key function is `pwgen.GeneratePassword`:
+
+```go
+pwgen.GeneratePassword(length int, uppercase bool, lowercase bool, number int, special int) (password string, err error)
+```
 
 
 ## Notes
